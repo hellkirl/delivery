@@ -55,7 +55,8 @@ func TestLocation(t *testing.T) {
 		require.NoError(t, err)
 
 		var correctDistance uint8 = 5
-		calculatedDistance := loc1.CalculateDistance(loc2)
+		calculatedDistance, err := loc1.DistanceTo(loc2)
 		require.Equal(t, correctDistance, calculatedDistance)
+		require.NoError(t, err)
 	})
 }
