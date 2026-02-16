@@ -33,12 +33,12 @@ func (l *Location) Equals(loc *Location) bool {
 	return l.x == loc.x && l.y == loc.y
 }
 
-func (l *Location) IsEmpty() bool {
+func (l *Location) IsValid() bool {
 	return l.x >= 1 && l.x <= 10 && l.y >= 1 && l.y <= 10
 }
 
 func (l *Location) DistanceTo(other *Location) (int, error) {
-	if l.IsEmpty() || other.IsEmpty() {
+	if !l.IsValid() || !other.IsValid() {
 		return 0, errors.New("invalid location")
 	}
 

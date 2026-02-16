@@ -21,6 +21,9 @@ type StoragePlace struct {
 }
 
 func NewStoragePlace(name string, totalVolume int) (*StoragePlace, error) {
+	if name == "" {
+		return nil, fmt.Errorf("storage place should have a name")
+	}
 	if totalVolume <= 0 {
 		return nil, InvalidTotalVolume
 	}
